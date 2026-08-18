@@ -1,0 +1,60 @@
+# 定时同步 GitHub 仓库数据：更新 src/data/repo-stats.json 并提交，
+# 提交会自动触发 Cloudflare Pages 重新构建部署。
+# 每日 UTC 02:17 运行（避开整点 API 高峰），也可手动触发。
+
+name: Sync GitHub repo stats
+
+on:
+  schedule:
+    - cron: '17 2 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-repos
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync repo stats
+        run: node scripts/sync-repos.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit changes
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "没有变化，无需提交"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "chore: sync repo stats ($(date -u +%Y-%m-%d))"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Push changes
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push

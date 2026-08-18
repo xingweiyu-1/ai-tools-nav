@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { getAllTools, getCategories } from '../lib/tools'
+import { SITE } from '../lib/site'
+
+const tools = await getAllTools()
+const categories = await getCategories()
+---
+
+<BaseLayout title="关于 · AI 工具导航" description="AI 工具聚合导航站的项目说明。">
+  <article class="mx-auto max-w-3xl px-4 py-14">
+    <span class="rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 text-xs font-medium text-violet-300">
+      关于本站
+    </span>
+    <h1 class="mt-4 text-3xl font-bold text-slate-100">AI 工具聚合导航站</h1>
+
+    <div class="prose-ai mt-6">
+      <p>
+        这是一个专注于 <b>AI 编程工具</b> 的静态导航站，目前收录 {tools.length} 个工具、覆盖{' '}
+        {categories.length} 个分类。目标是让开发者快速发现、对比和上手最值得用的 AI 编程工具。
+      </p>
+
+      <h2>核心能力</h2>
+      <ul>
+        <li>
+          <b>全文模糊搜索</b>：基于 Fuse.js 的前端搜索，索引覆盖工具名称、分类、标签、简介与正文全文，跨模块一次检索。
+        </li>
+        <li>
+          <b>自动数据同步</b>：GitHub Actions 定时调用 GitHub API，抓取各仓库的最新星标、描述、动态，提交后自动触发重新构建。
+        </li>
+        <li>
+          <b>零运行时依赖</b>：全站为纯静态产物（HTML / CSS / JS / JSON），客户端不依赖任何 CDN 或服务。
+        </li>
+      </ul>
+
+      <h2>技术栈</h2>
+      <ul>
+        {SITE.stack.map((s) => (
+          <li>{s}</li>
+        ))}
+      </ul>
+
+      <h2>数据流</h2>
+      <ul>
+        <li>工具内容以 Markdown 存储于 <code>src/content/tools/</code>，正文同时用于全文检索。</li>
+        <li>
+          仓库统计存于 <code>src/data/repo-stats.json</code>，由
+          <code>scripts/sync-repos.mjs</code> 每日更新。
+        </li>
+        <li>构建时合并内容与统计数据，并预渲染 <code>/search-index.json</code> 供前端检索。</li>
+        <li>推送到 GitHub 后，Cloudflare Pages 自动构建部署。</li>
+      </ul>
+
+      <h2>如何贡献</h2>
+      <p>
+        欢迎在 <a href={SITE.repo} target="_blank" rel="noreferrer">GitHub 仓库</a> 提交新工具或修正信息。
+        新增一个工具 = 在 <code>src/content/tools/</code> 下新增一个 Markdown 文件，附带
+        <code>github</code> 字段即可自动同步星标数据。
+      </p>
+
+      <h2>免责声明</h2>
+      <p>
+        星标、描述等数据来自 GitHub 公共 API，仅作展示；价格与功能信息以各工具官网为准。
+      </p>
+    </div>
+  </article>
+</BaseLayout>

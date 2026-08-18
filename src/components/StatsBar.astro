@@ -1,0 +1,33 @@
+---
+import { formatNumber, getCategories, getOpenSourceCount, getTotalStars } from '../lib/tools'
+
+const categories = await getCategories()
+const total = categories.reduce((sum, c) => sum + c.count, 0)
+const stars = await getTotalStars()
+const openSource = await getOpenSourceCount()
+
+const stats = [
+  { label: '收录工具', value: String(total), suffix: '个' },
+  { label: '分类', value: String(categories.length), suffix: '' },
+  { label: '开源项目', value: String(openSource), suffix: '个' },
+  { label: 'GitHub 星标', value: formatNumber(stars), suffix: '⭐' },
+]
+---
+
+<section class="mx-auto max-w-6xl px-4">
+  <dl class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+    {
+      stats.map((s) => (
+        <div
+          class="rounded-2xl border border-white/5 bg-slate-900/50 px-5 py-4 text-center backdrop-blur"
+        >
+          <dt class="text-xs tracking-wide text-slate-500">{s.label}</dt>
+          <dd class="mt-1 text-2xl font-bold text-slate-100">
+            {s.value}
+            <span class="ml-1 text-xs font-normal text-slate-500">{s.suffix}</span>
+          </dd>
+        </div>
+      ))
+    }
+  </dl>
+</section>

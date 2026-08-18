@@ -1,0 +1,197 @@
+---
+import { render } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import ToolCard from '../../components/ToolCard.astro'
+import {
+  getAllTools,
+  categoryMeta,
+  formatNumber,
+  repoStatOf,
+  starsOf,
+  type Tool,
+} from '../../lib/tools'
+
+export async function getStaticPaths() {
+  const tools = await getAllTools()
+  return tools.map((tool) => ({ params: { slug: tool.id }, props: { tool } }))
+}
+
+const { tool } = Astro.props
+const { Content } = await render(tool)
+const meta = categoryMeta(tool.data.category)
+const stars = starsOf(tool)
+const repo = repoStatOf(tool)
+
+const allTools = await getAllTools()
+const related = allTools
+  .filter((t) => t.id !== tool.id && t.data.category === tool.data.category)
+  .slice(0, 3)
+
+const LINK_BASE =
+  'inline-flex items-center gap-1.5 rounded-lg border px-4 py-2 font-medium transition'
+const LINK_PRIMARY = `${LINK_BASE} border-violet-500/30 bg-violet-500/15 text-violet-200 hover:bg-violet-500/25`
+const LINK_SECONDARY = `${LINK_BASE} border-white/10 bg-white/5 text-slate-300 hover:border-white/20 hover:bg-white/10`
+---
+
+<BaseLayout title={`${tool.data.name} · AI 工具导航`} description={tool.data.description}>
+  <article class="mx-auto max-w-4xl px-4 py-12">
+    <a
+      href="/#tools"
+      class="inline-flex items-center gap-1.5 text-sm text-slate-400 transition hover:text-slate-200"
+    >
+      ← 返回全部工具
+    </a>
+
+    <!-- 头部 -->
+    <header class="mt-6">
+      <div class="flex flex-wrap items-center gap-4">
+        <span
+          class={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br text-2xl ${meta.iconBg}`}
+        >
+          {tool.data.icon}
+        </span>
+        <div class="min-w-0">
+          <h1 class="text-2xl font-bold text-slate-100 sm:text-3xl">{tool.data.name}</h1>
+          <div class="mt-2 flex flex-wrap items-center gap-2 text-xs">
+            <span class={`rounded-full px-2.5 py-0.5 font-medium ring-1 ring-inset ${meta.chip}`}>
+              {tool.data.category}
+            </span>
+            <span class="rounded-full bg-white/5 px-2.5 py-0.5 text-slate-300 ring-1 ring-inset ring-white/10">
+              {tool.data.price}
+            </span>
+            {stars != null && (
+              <span
+                class="flex items-center gap-1 rounded-full bg-amber-500/10 px-2.5 py-0.5 font-medium text-amber-300 ring-1 ring-inset ring-amber-500/20"
+              >
+                ★ {formatNumber(stars)} stars
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
+        {tool.data.description}
+      </p>
+
+      <div class="mt-5 flex flex-wrap gap-2.5">
+        {tool.data.website && (
+          <a href={tool.data.website} target="_blank" rel="noreferrer" class={LINK_PRIMARY}>
+            访问官网 ↗
+          </a>
+        )}
+        {tool.data.github && (
+          <a
+            href={`https://github.com/${tool.data.github}`}
+            target="_blank"
+            rel="noreferrer"
+            class={LINK_SECONDARY}
+          >
+            查看仓库 ↗
+          </a>
+        )}
+      </div>
+
+      {tool.data.tags.length > 0 && (
+        <div class="mt-5 flex flex-wrap gap-2">
+          {tool.data.tags.map((tag) => (
+            <span class="rounded-md bg-white/5 px-2.5 py-1 text-xs text-slate-400">{tag}</span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <!-- 核心特性 -->
+    {tool.data.features.length > 0 && (
+      <section class="mt-10">
+        <h2 class="text-lg font-semibold text-slate-100">核心特性</h2>
+        <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+          {tool.data.features.map((f) => (
+            <li
+              class="flex items-start gap-2.5 rounded-xl border border-white/5 bg-slate-900/50 px-4 py-3 text-sm leading-6 text-slate-300"
+            >
+              <svg
+                class="mt-1 h-4 w-4 shrink-0 text-emerald-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M20 6 9 17l-5-5"></path>
+              </svg>
+              {f}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <!-- 正文（markdown 渲染） -->
+    <section class="prose-ai mt-10 border-t border-white/5 pt-6">
+      <Content />
+    </section>
+
+    <!-- GitHub 同步数据 -->
+    {repo && (
+      <section class="mt-12">
+        <div class="flex items-center gap-3">
+          <h2 class="text-lg font-semibold text-slate-100">仓库动态</h2>
+          <span class="flex items-center gap-1.5 text-xs text-slate-500">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+            GitHub Actions 每日自动同步
+          </span>
+        </div>
+        <dl class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {[
+            { label: 'Stars', value: formatNumber(repo.stars) },
+            { label: 'Forks', value: formatNumber(repo.forks ?? 0) },
+            { label: '开源协议', value: repo.license ?? '—' },
+            { label: '最近推送', value: repo.pushedAt ? repo.pushedAt.slice(0, 10) : '—' },
+          ].map((s) => (
+            <div class="rounded-xl border border-white/5 bg-slate-900/50 px-4 py-3">
+              <dt class="text-xs text-slate-500">{s.label}</dt>
+              <dd class="mt-1 truncate text-base font-semibold text-slate-100">{s.value}</dd>
+            </div>
+          ))}
+        </dl>
+        {repo.topics && repo.topics.length > 0 && (
+          <div class="mt-4 flex flex-wrap gap-2">
+            {repo.topics.slice(0, 8).map((topic) => (
+              <span class="rounded-md bg-sky-500/10 px-2 py-1 text-xs text-sky-300">
+                #{topic}
+              </span>
+            ))}
+          </div>
+        )}
+      </section>
+    )}
+
+    <!-- 相关工具 -->
+    {related.length > 0 && (
+      <section class="mt-12 border-t border-white/5 pt-8">
+        <h2 class="text-lg font-semibold text-slate-100">同分类推荐</h2>
+        <div class="mt-4 grid gap-3 sm:grid-cols-3">
+          {related.map((r) => (
+            <a
+              href={`/tools/${r.id}/`}
+              class="group rounded-xl border border-white/5 bg-slate-900/50 p-4 transition hover:border-white/15 hover:bg-slate-900"
+            >
+              <div class="flex items-center gap-2.5">
+                <span class="text-lg">{r.data.icon}</span>
+                <span class="truncate font-medium text-slate-200 group-hover:text-white">
+                  {r.data.name}
+                </span>
+              </div>
+              <p class="mt-2 line-clamp-2 text-xs leading-5 text-slate-500">
+                {r.data.description}
+              </p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+  </article>
+</BaseLayout>

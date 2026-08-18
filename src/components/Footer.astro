@@ -1,0 +1,65 @@
+---
+import { SITE } from '../lib/site'
+const year = new Date().getFullYear()
+---
+
+<footer class="mt-20 border-t border-white/5 bg-slate-950/60">
+  <div class="mx-auto max-w-6xl px-4 py-12">
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-sky-500 to-violet-500 text-sm font-bold text-white">
+            AI
+          </span>
+          <span class="font-semibold text-slate-100">{SITE.shortName}</span>
+        </div>
+        <p class="mt-3 max-w-xs text-sm leading-6 text-slate-400">
+          {SITE.description}
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold text-slate-200">技术栈</h3>
+        <div class="mt-3 flex flex-wrap gap-2">
+          {
+            SITE.stack.map((s) => (
+              <span class="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-slate-300">
+                {s}
+              </span>
+            ))
+          }
+        </div>
+        <p class="mt-3 text-xs leading-5 text-slate-500">
+          纯静态构建产物，客户端无任何运行时外部依赖。
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold text-slate-200">数据同步</h3>
+        <ul class="mt-3 space-y-2 text-sm text-slate-400">
+          <li class="flex items-center gap-2">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+            GitHub Actions 定时（每日）拉取仓库星标 / 描述 / 动态
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+            提交后 Cloudflare Pages 自动重建
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+            前端 Fuse.js 模糊搜索，跨模块全文检索
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/5 pt-6 text-xs text-slate-500 sm:flex-row">
+      <p>© {year} {SITE.shortName} · 数据来源 GitHub REST API</p>
+      <p class="flex items-center gap-4">
+        <a href="/about" class="transition hover:text-slate-300">关于本站</a>
+        <a href={SITE.repo} target="_blank" rel="noreferrer" class="transition hover:text-slate-300">GitHub</a>
+        <span>Built with Astro</span>
+      </p>
+    </div>
+  </div>
+</footer>

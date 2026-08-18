@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import CategoryChips from '../components/CategoryChips.astro'
+import StatsBar from '../components/StatsBar.astro'
+import ToolCard from '../components/ToolCard.astro'
+import { getAllTools, getCategories, getTotalStars, getOpenSourceCount, starsOf } from '../lib/tools'
+import { SITE } from '../lib/site'
+
+const tools = await getAllTools()
+const categories = await getCategories()
+const total = categories.reduce((sum, c) => sum + c.count, 0)
+const stars = await getTotalStars()
+const openSource = await getOpenSourceCount()
+
+// 卡片默认按 GitHub 星标从高到低展示
+const sorted = [...tools].sort((a, b) => (starsOf(b) ?? -1) - (starsOf(a) ?? -1))
+---
+
+<BaseLayout>
+  <main>
+    <!-- Hero -->
+    <section class="mx-auto max-w-6xl px-4 pt-14 pb-10 text-center sm:pt-24">
+      <span
+        class="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-3.5 py-1.5 text-xs font-medium text-sky-300"
+      >
+        <span class="relative flex h-2 w-2">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-60"></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full bg-sky-400"></span>
+        </span>
+        精选 {total} 个 AI 编程工具 · GitHub Actions 每日自动同步
+      </span>
+
+      <h1 class="mt-6 text-4xl font-bold leading-tight tracking-tight sm:text-6xl">
+        <span class="bg-gradient-to-r from-sky-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+          AI 编程工具
+        </span>
+        <br />
+        聚合导航站
+      </h1>
+
+      <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-400 sm:text-lg">
+        一站式收录 {total} 个 AI 编程工具：终端智能体、AI 编辑器、IDE 插件、应用生成器与多智能体框架。
+        支持<b class="text-slate-200">跨模块全文模糊搜索</b>，数据每日自动同步。
+      </p>
+
+      <!-- 搜索框 -->
+      <div id="search-box" class="relative mx-auto mt-9 max-w-xl">
+        <div
+          class="flex items-center gap-2 rounded-2xl border border-white/10 bg-slate-900/80 px-4 py-3 shadow-xl shadow-black/40 backdrop-blur transition focus-within:border-violet-500/50 focus-within:ring-2 focus-within:ring-violet-500/20"
+        >
+          <svg class="h-5 w-5 shrink-0 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </svg>
+          <input
+            id="search-input"
+            type="search"
+            autocomplete="off"
+            role="combobox"
+            aria-expanded="false"
+            aria-controls="search-results"
+            placeholder="搜索工具：名称、分类、标签、功能或全文…"
+            class="w-full bg-transparent text-[15px] text-slate-100 outline-none placeholder:text-slate-500 [&::-webkit-search-cancel-button]:hidden"
+          />
+          <kbd
+            class="hidden shrink-0 rounded-md border border-white/10 bg-white/5 px-1.5 py-0.5 text-xs text-slate-500 sm:inline-block"
+          >
+            /
+          </kbd>
+        </div>
+
+        <!-- 搜索结果下拉 -->
+        <div
+          id="search-results"
+          class="absolute top-full left-0 right-0 z-20 mt-2 hidden overflow-hidden rounded-2xl border border-white/10 bg-slate-900/95 text-left shadow-2xl shadow-black/50 backdrop-blur-md"
+        ></div>
+      </div>
+    </section>
+
+    <!-- 统计 -->
+    <StatsBar />
+
+    <!-- 工具列表 -->
+    <section id="tools" class="mx-auto max-w-6xl scroll-mt-20 px-4 pt-12">
+      <div class="flex items-center gap-3">
+        <h2 class="text-lg font-semibold text-slate-100">全部工具</h2>
+        <span class="rounded-full bg-white/5 px-2 py-0.5 text-xs text-slate-400">
+          <span id="tool-count" data-total={total}>{total}</span> 个
+        </span>
+      </div>
+
+      <CategoryChips />
+
+      <div id="tool-grid" class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {sorted.map((tool) => <ToolCard tool={tool} />)}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  import '../scripts/search'
+  import '../scripts/category-filter'
+</script>
