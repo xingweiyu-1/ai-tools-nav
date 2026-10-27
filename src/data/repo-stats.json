@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-26T07:46:00.009Z",
+  "updatedAt": "2026-10-27T07:49:01.123Z",
   "note": "该文件由 .github/workflows/sync-repos.yml 定时调用 scripts/sync-repos.mjs 自动更新（数据来自 GitHub REST API）。",
   "repos": {
     "aider-ai/aider": {
-      "stars": 49756,
-      "forks": 5108,
+      "stars": 49770,
+      "forks": 5107,
       "description": "aider is AI pair programming in your terminal",
       "homepage": "https://aider.chat/",
       "topics": [
@@ -27,8 +27,8 @@
       "archived": false
     },
     "microsoft/autogen": {
-      "stars": 61566,
-      "forks": 9316,
+      "stars": 61581,
+      "forks": 9325,
       "description": "A programming framework for agentic AI",
       "homepage": "https://microsoft.github.io/autogen/",
       "topics": [
@@ -48,8 +48,8 @@
       "archived": false
     },
     "stackblitz/bolt.new": {
-      "stars": 16577,
-      "forks": 14832,
+      "stars": 16582,
+      "forks": 14831,
       "description": "Prompt, run, edit, and deploy full-stack web applications. -- bolt.new -- Help Center: https://support.bolt.new/ -- Community Support: https://discord.com/invite/stackblitz",
       "homepage": "https://bolt.new",
       "topics": [
@@ -63,22 +63,22 @@
       "archived": false
     },
     "anthropics/claude-code": {
-      "stars": 153398,
-      "forks": 26040,
+      "stars": 153505,
+      "forks": 26053,
       "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
       "homepage": "https://code.claude.com/docs/en/overview",
       "topics": [],
-      "pushedAt": "2026-10-25T20:11:26Z",
+      "pushedAt": "2026-10-26T23:13:01Z",
       "license": null,
       "archived": false
     },
     "cline/cline": {
-      "stars": 70858,
-      "forks": 7752,
+      "stars": 70911,
+      "forks": 7769,
       "description": "Autonomous coding agent as an SDK, IDE extension, or CLI assistant.",
       "homepage": "https://cline.bot",
       "topics": [],
-      "pushedAt": "2026-10-26T05:46:16Z",
+      "pushedAt": "2026-10-27T07:22:55Z",
       "license": "Apache-2.0",
       "archived": false
     },
@@ -93,8 +93,8 @@
       "archived": false
     },
     "continuedev/continue": {
-      "stars": 36324,
-      "forks": 5522,
+      "stars": 36344,
+      "forks": 5526,
       "description": "open-source coding agent",
       "homepage": "https://continue.dev",
       "topics": [
@@ -104,13 +104,13 @@
         "developer-tools",
         "open-source"
       ],
-      "pushedAt": "2026-10-26T07:34:12Z",
+      "pushedAt": "2026-10-27T04:23:32Z",
       "license": "Apache-2.0",
       "archived": false
     },
     "crewaiinc/crewai": {
-      "stars": 60109,
-      "forks": 8885,
+      "stars": 60152,
+      "forks": 8903,
       "description": "Framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.",
       "homepage": "https://crewai.com",
       "topics": [
@@ -120,13 +120,13 @@
         "aiagentframework",
         "llms"
       ],
-      "pushedAt": "2026-10-26T07:30:48Z",
+      "pushedAt": "2026-10-27T07:08:26Z",
       "license": "MIT",
       "archived": false
     },
     "google-gemini/gemini-cli": {
-      "stars": 108394,
-      "forks": 14838,
+      "stars": 108564,
+      "forks": 14850,
       "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
       "homepage": "https://geminicli.com",
       "topics": [
@@ -138,13 +138,13 @@
         "mcp-client",
         "mcp-server"
       ],
-      "pushedAt": "2026-10-26T00:37:50Z",
+      "pushedAt": "2026-10-27T01:15:46Z",
       "license": "Apache-2.0",
       "archived": false
     },
     "foundationagents/metagpt": {
-      "stars": 71019,
-      "forks": 9048,
+      "stars": 71032,
+      "forks": 9052,
       "description": "🌟 The Multi-Agent Framework: First AI Software Company, Towards Natural Language Programming",
       "homepage": "https://atoms.dev/",
       "topics": [
@@ -159,28 +159,28 @@
       "archived": false
     },
     "openai/codex": {
-      "stars": 130940,
-      "forks": 20673,
+      "stars": 131087,
+      "forks": 20702,
       "description": "Lightweight coding agent that runs in your terminal",
       "homepage": "",
       "topics": [],
-      "pushedAt": "2026-10-23T18:51:12Z",
+      "pushedAt": "2026-10-27T05:52:19Z",
       "license": "Apache-2.0",
       "archived": false
     },
     "sst/opencode": {
-      "stars": 221667,
-      "forks": 29638,
+      "stars": 222099,
+      "forks": 29716,
       "description": "The open source coding agent.",
       "homepage": "https://opencode.ai",
       "topics": [],
-      "pushedAt": "2026-10-26T07:45:22Z",
+      "pushedAt": "2026-10-27T07:48:39Z",
       "license": "MIT",
       "archived": false
     },
     "all-hands-ai/openhands": {
-      "stars": 91867,
-      "forks": 12201,
+      "stars": 91969,
+      "forks": 12218,
       "description": "🙌 OpenHands: AI-Driven Development",
       "homepage": "https://openhands.dev",
       "topics": [
@@ -194,13 +194,13 @@
         "llm",
         "openai"
       ],
-      "pushedAt": "2026-10-26T05:53:31Z",
+      "pushedAt": "2026-10-27T01:30:23Z",
       "license": "MIT",
       "archived": false
     },
     "roovetgit/roo-code": {
-      "stars": 24262,
-      "forks": 3427,
+      "stars": 24258,
+      "forks": 3426,
       "description": "Roo Code gives you a whole dev team of AI agents in your code editor.",
       "homepage": "https://roocode.com",
       "topics": [],
@@ -209,8 +209,8 @@
       "archived": true
     },
     "tabbyml/tabby": {
-      "stars": 33923,
-      "forks": 1791,
+      "stars": 33922,
+      "forks": 1792,
       "description": "Self-hosted AI coding assistant",
       "homepage": "https://tabbyml.com",
       "topics": [
@@ -229,8 +229,8 @@
       "archived": false
     },
     "zed-industries/zed": {
-      "stars": 92204,
-      "forks": 11217,
+      "stars": 92265,
+      "forks": 11231,
       "description": "Code at the speed of thought – Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter.",
       "homepage": "https://zed.dev",
       "topics": [
@@ -239,7 +239,7 @@
         "text-editor",
         "zed"
       ],
-      "pushedAt": "2026-10-26T03:00:59Z",
+      "pushedAt": "2026-10-27T06:17:01Z",
       "license": "NOASSERTION",
       "archived": false
     }
