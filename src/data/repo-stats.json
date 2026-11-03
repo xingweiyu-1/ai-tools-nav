@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-02T09:26:39.778Z",
+  "updatedAt": "2026-11-03T09:29:41.902Z",
   "note": "该文件由 .github/workflows/sync-repos.yml 定时调用 scripts/sync-repos.mjs 自动更新（数据来自 GitHub REST API）。",
   "repos": {
     "aider-ai/aider": {
-      "stars": 49896,
-      "forks": 5126,
+      "stars": 49918,
+      "forks": 5129,
       "description": "aider is AI pair programming in your terminal",
       "homepage": "https://aider.chat/",
       "topics": [
@@ -27,8 +27,8 @@
       "archived": false
     },
     "microsoft/autogen": {
-      "stars": 61671,
-      "forks": 9349,
+      "stars": 61686,
+      "forks": 9357,
       "description": "A programming framework for agentic AI",
       "homepage": "https://microsoft.github.io/autogen/",
       "topics": [
@@ -63,22 +63,22 @@
       "archived": false
     },
     "anthropics/claude-code": {
-      "stars": 154220,
-      "forks": 25524,
+      "stars": 154354,
+      "forks": 25544,
       "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
       "homepage": "https://code.claude.com/docs/en/overview",
       "topics": [],
-      "pushedAt": "2026-11-02T07:12:58Z",
+      "pushedAt": "2026-11-03T01:25:46Z",
       "license": null,
       "archived": false
     },
     "cline/cline": {
-      "stars": 71197,
-      "forks": 7829,
+      "stars": 71243,
+      "forks": 7840,
       "description": "Autonomous coding agent as an SDK, IDE extension, or CLI assistant.",
       "homepage": "https://cline.bot",
       "topics": [],
-      "pushedAt": "2026-11-02T07:29:59Z",
+      "pushedAt": "2026-11-03T03:23:42Z",
       "license": "Apache-2.0",
       "archived": false
     },
@@ -94,7 +94,7 @@
     },
     "continuedev/continue": {
       "stars": 36399,
-      "forks": 5543,
+      "forks": 5546,
       "description": "open-source coding agent",
       "homepage": "https://continue.dev",
       "topics": [
@@ -104,13 +104,13 @@
         "developer-tools",
         "open-source"
       ],
-      "pushedAt": "2026-11-01T07:23:48Z",
+      "pushedAt": "2026-11-03T06:12:56Z",
       "license": "Apache-2.0",
       "archived": false
     },
     "crewaiinc/crewai": {
-      "stars": 60413,
-      "forks": 8999,
+      "stars": 60439,
+      "forks": 9014,
       "description": "Framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.",
       "homepage": "https://crewai.com",
       "topics": [
@@ -120,13 +120,13 @@
         "aiagentframework",
         "llms"
       ],
-      "pushedAt": "2026-11-02T06:37:07Z",
+      "pushedAt": "2026-11-03T06:08:23Z",
       "license": "MIT",
       "archived": false
     },
     "google-gemini/gemini-cli": {
-      "stars": 108668,
-      "forks": 14912,
+      "stars": 108697,
+      "forks": 14916,
       "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
       "homepage": "https://geminicli.com",
       "topics": [
@@ -138,13 +138,13 @@
         "mcp-client",
         "mcp-server"
       ],
-      "pushedAt": "2026-11-02T01:22:37Z",
+      "pushedAt": "2026-11-03T01:18:35Z",
       "license": "Apache-2.0",
       "archived": false
     },
     "foundationagents/metagpt": {
-      "stars": 71133,
-      "forks": 9086,
+      "stars": 71146,
+      "forks": 9091,
       "description": "🌟 The Multi-Agent Framework: First AI Software Company, Towards Natural Language Programming",
       "homepage": "https://atoms.dev/",
       "topics": [
@@ -159,28 +159,28 @@
       "archived": false
     },
     "openai/codex": {
-      "stars": 132816,
-      "forks": 20990,
+      "stars": 132955,
+      "forks": 21033,
       "description": "Lightweight coding agent that runs in your terminal",
       "homepage": "",
       "topics": [],
-      "pushedAt": "2026-11-02T08:31:32Z",
+      "pushedAt": "2026-11-03T07:06:22Z",
       "license": "Apache-2.0",
       "archived": false
     },
     "sst/opencode": {
-      "stars": 223951,
-      "forks": 30111,
+      "stars": 224213,
+      "forks": 30161,
       "description": "The open source coding agent.",
       "homepage": "https://opencode.ai",
       "topics": [],
-      "pushedAt": "2026-11-02T06:25:10Z",
+      "pushedAt": "2026-11-03T05:39:29Z",
       "license": "MIT",
       "archived": false
     },
     "all-hands-ai/openhands": {
-      "stars": 92483,
-      "forks": 12323,
+      "stars": 92550,
+      "forks": 12342,
       "description": "🙌 OpenHands: AI-Driven Development",
       "homepage": "https://openhands.dev",
       "topics": [
@@ -194,13 +194,13 @@
         "llm",
         "openai"
       ],
-      "pushedAt": "2026-11-02T09:26:30Z",
+      "pushedAt": "2026-11-03T09:24:47Z",
       "license": "MIT",
       "archived": false
     },
     "roovetgit/roo-code": {
-      "stars": 24256,
-      "forks": 3423,
+      "stars": 24254,
+      "forks": 3424,
       "description": "Roo Code gives you a whole dev team of AI agents in your code editor.",
       "homepage": "https://roocode.com",
       "topics": [],
@@ -209,7 +209,7 @@
       "archived": true
     },
     "tabbyml/tabby": {
-      "stars": 33923,
+      "stars": 33916,
       "forks": 1793,
       "description": "Self-hosted AI coding assistant",
       "homepage": "https://tabbyml.com",
@@ -229,8 +229,8 @@
       "archived": false
     },
     "zed-industries/zed": {
-      "stars": 92533,
-      "forks": 11351,
+      "stars": 92614,
+      "forks": 11380,
       "description": "Code at the speed of thought – Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter.",
       "homepage": "https://zed.dev",
       "topics": [
@@ -239,7 +239,7 @@
         "text-editor",
         "zed"
       ],
-      "pushedAt": "2026-11-02T09:22:06Z",
+      "pushedAt": "2026-11-03T09:18:48Z",
       "license": "NOASSERTION",
       "archived": false
     }
