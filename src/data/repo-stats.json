@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-14T08:56:45.684Z",
+  "updatedAt": "2026-11-15T09:20:22.938Z",
   "note": "该文件由 .github/workflows/sync-repos.yml 定时调用 scripts/sync-repos.mjs 自动更新（数据来自 GitHub REST API）。",
   "repos": {
     "aider-ai/aider": {
-      "stars": 50112,
-      "forks": 5164,
+      "stars": 50120,
+      "forks": 5168,
       "description": "aider is AI pair programming in your terminal",
       "homepage": "https://aider.chat/",
       "topics": [
@@ -27,8 +27,8 @@
       "archived": false
     },
     "microsoft/autogen": {
-      "stars": 61810,
-      "forks": 9402,
+      "stars": 61833,
+      "forks": 9406,
       "description": "A programming framework for agentic AI",
       "homepage": "https://microsoft.github.io/autogen/",
       "topics": [
@@ -48,7 +48,7 @@
       "archived": false
     },
     "stackblitz/bolt.new": {
-      "stars": 16596,
+      "stars": 16594,
       "forks": 14839,
       "description": "Prompt, run, edit, and deploy full-stack web applications. -- bolt.new -- Help Center: https://support.bolt.new/ -- Community Support: https://discord.com/invite/stackblitz",
       "homepage": "https://bolt.new",
@@ -63,18 +63,18 @@
       "archived": false
     },
     "anthropics/claude-code": {
-      "stars": 155613,
-      "forks": 24982,
+      "stars": 155724,
+      "forks": 25002,
       "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
       "homepage": "https://code.claude.com/docs/en/overview",
       "topics": [],
-      "pushedAt": "2026-11-14T07:22:36Z",
+      "pushedAt": "2026-11-15T06:33:37Z",
       "license": null,
       "archived": false
     },
     "cline/cline": {
-      "stars": 71610,
-      "forks": 7921,
+      "stars": 71646,
+      "forks": 7926,
       "description": "Autonomous coding agent as an SDK, IDE extension, or CLI assistant.",
       "homepage": "https://cline.bot",
       "topics": [],
@@ -93,8 +93,8 @@
       "archived": false
     },
     "continuedev/continue": {
-      "stars": 36479,
-      "forks": 5561,
+      "stars": 36481,
+      "forks": 5563,
       "description": "open-source coding agent",
       "homepage": "https://continue.dev",
       "topics": [
@@ -104,13 +104,13 @@
         "developer-tools",
         "open-source"
       ],
-      "pushedAt": "2026-11-13T13:26:06Z",
+      "pushedAt": "2026-11-14T13:30:51Z",
       "license": "Apache-2.0",
       "archived": false
     },
     "crewaiinc/crewai": {
-      "stars": 60876,
-      "forks": 9180,
+      "stars": 60926,
+      "forks": 9189,
       "description": "Framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.",
       "homepage": "https://crewai.com",
       "topics": [
@@ -120,13 +120,13 @@
         "aiagentframework",
         "llms"
       ],
-      "pushedAt": "2026-11-13T18:43:21Z",
+      "pushedAt": "2026-11-15T09:16:52Z",
       "license": "MIT",
       "archived": false
     },
     "google-gemini/gemini-cli": {
-      "stars": 108821,
-      "forks": 14953,
+      "stars": 108839,
+      "forks": 14956,
       "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
       "homepage": "https://geminicli.com",
       "topics": [
@@ -138,12 +138,12 @@
         "mcp-client",
         "mcp-server"
       ],
-      "pushedAt": "2026-11-14T01:10:53Z",
+      "pushedAt": "2026-11-15T01:12:38Z",
       "license": "Apache-2.0",
       "archived": false
     },
     "foundationagents/metagpt": {
-      "stars": 71275,
+      "stars": 71281,
       "forks": 9110,
       "description": "🌟 The Multi-Agent Framework: First AI Software Company, Towards Natural Language Programming",
       "homepage": "https://atoms.dev/",
@@ -159,28 +159,28 @@
       "archived": false
     },
     "openai/codex": {
-      "stars": 135230,
-      "forks": 21448,
+      "stars": 135342,
+      "forks": 21465,
       "description": "Lightweight coding agent that runs in your terminal",
       "homepage": "",
       "topics": [],
-      "pushedAt": "2026-11-14T08:48:23Z",
+      "pushedAt": "2026-11-15T07:56:29Z",
       "license": "Apache-2.0",
       "archived": false
     },
     "sst/opencode": {
-      "stars": 226746,
-      "forks": 30711,
+      "stars": 226942,
+      "forks": 30738,
       "description": "The open source coding agent.",
       "homepage": "https://opencode.ai",
       "topics": [],
-      "pushedAt": "2026-11-14T07:25:06Z",
+      "pushedAt": "2026-11-15T07:42:42Z",
       "license": "MIT",
       "archived": false
     },
     "all-hands-ai/openhands": {
-      "stars": 93450,
-      "forks": 12506,
+      "stars": 93493,
+      "forks": 12517,
       "description": "🙌 OpenHands: AI-Driven Development",
       "homepage": "https://openhands.dev",
       "topics": [
@@ -194,7 +194,7 @@
         "llm",
         "openai"
       ],
-      "pushedAt": "2026-11-14T06:37:07Z",
+      "pushedAt": "2026-11-15T08:21:40Z",
       "license": "MIT",
       "archived": false
     },
@@ -209,7 +209,7 @@
       "archived": true
     },
     "tabbyml/tabby": {
-      "stars": 33936,
+      "stars": 33939,
       "forks": 1797,
       "description": "Self-hosted AI coding assistant",
       "homepage": "https://tabbyml.com",
@@ -229,8 +229,8 @@
       "archived": false
     },
     "zed-industries/zed": {
-      "stars": 94993,
-      "forks": 11697,
+      "stars": 95056,
+      "forks": 11710,
       "description": "Code at the speed of thought – Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter.",
       "homepage": "https://zed.dev",
       "topics": [
@@ -239,7 +239,7 @@
         "text-editor",
         "zed"
       ],
-      "pushedAt": "2026-11-14T03:00:00Z",
+      "pushedAt": "2026-11-15T09:17:54Z",
       "license": "NOASSERTION",
       "archived": false
     }
